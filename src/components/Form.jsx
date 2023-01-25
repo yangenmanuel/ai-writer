@@ -1,10 +1,26 @@
+import { useState } from "react"
+
 export default function Form() {
+  const [type, setType] = useState('text message')
+  const [toWho, setToWho] = useState('')
+  const [tone, setTone] = useState('neutral')
+  const [about, setAbout] = useState('')
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    // console.log({ type, toWho, tone, about })
+    const res = await fetch('api/cohere')
+    console.log(await res.json())
+  }
+
   return (
-    <form>
+    <>
+    <form onSubmit={handleSubmit}>
       <div className=''>
         <label htmlFor='typeSelector'>Type of message</label>
-        <select name='typeSelector' id=''>
-          <option value='textMessage'>Text Message</option>
+        <select name='typeSelector'  onChange={(e) => setType(e.target.value)}>
+          <option value='text message'>Text Message</option>
           <option value='email'>Email</option>
           <option value='letter'>Letter</option>
         </select>
@@ -12,12 +28,12 @@ export default function Form() {
 
       <div className=''>
         <label htmlFor='receiver'>To:</label>
-        <input type='text' name='receiver' />
+        <input type='text' name='receiver'  onChange={(e) => setToWho(e.target.value)}/>
       </div>
 
       <div className=''>
         <label htmlFor='tone'>Tone:</label>
-        <select name='tone'>
+        <select name='tone' onChange={(e) => setTone(e.target.value)}>
           <option value='neutral'>Neutral</option>
           <option value='friendly'>Friendly</option>
           <option value='professional'>Professional</option>
@@ -27,13 +43,16 @@ export default function Form() {
 
       <div className=''>
         <label htmlFor='about'>What is it about?</label>
-        <textarea
+        <textarea onChange={(e) => setAbout(e.target.value)}
           name='about'
           cols='30'
           rows='10'
           placeholder='Telling my friend I love her...'
         ></textarea>
       </div>
+
+      <button type="submit" >Write ✒️</button>
     </form>
+    </>
   )
 }

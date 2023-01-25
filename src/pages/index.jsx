@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Form from '@/components/Form'
 
 export default function Home() {
   return (
@@ -10,9 +11,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
         <h1>Ai Message Generator</h1>
-      </main>
+        <p>Generate your desired message based on simple facts!</p>
+        <main>
+          <Form />
+        </main>
     </>
   )
 }

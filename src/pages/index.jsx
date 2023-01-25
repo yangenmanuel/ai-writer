@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import Form from '@/components/Form'
+import ResultBox from '@/components/ResultBox'
 
 export default function Home() {
   return (
@@ -15,6 +16,7 @@ export default function Home() {
         <p>Generate your desired message based on simple facts!</p>
         <main>
           <Form/>
+          <ResultBox/>
         </main>
     </>
   )

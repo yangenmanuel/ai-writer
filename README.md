@@ -8,3 +8,9 @@ generate messages according to:
 - Level of politeness
 - Type of message (text message, email, letter etc...)
 - What's the message about
+
+## Try it in your machine
+
+1- Install NodeJs and NPM or other similar like PNPM
+2- Run the command npm i for local environment setup
+3- Run the command npm run dev to set up local development server 

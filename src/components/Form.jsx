@@ -10,8 +10,7 @@ export default function Form() {
     e.preventDefault()
 
     // console.log({ type, toWho, tone, about })
-    const res = await fetch('api/cohere')
-    console.log(await res.json())
+    const res = await fetch(`api/cohere?type=${type}&toWho=${toWho}&tone=${tone}&about=${about}`)
   }
 
   return (

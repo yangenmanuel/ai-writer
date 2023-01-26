@@ -1,5 +1,5 @@
-export default function ResultBox ({ message}) {
+export default function ResultBox ({ message, loading }) {
   return (  
-    <p>{ message }</p>
+    <p>{ loading ? 'Generating your message...' : message }</p>
   )
 }

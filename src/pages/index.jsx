@@ -20,7 +20,7 @@ export default function Home() {
         <p>Generate your desired message based on simple facts!</p>
         <main>
           <Form setMessage={setMessage} setLoading={setLoading}/>
-          {loading ? 'Loading...' : <ResultBox message={message}/>}
+          <ResultBox message={message} loading={loading}/>
         </main>
     </>
   )

@@ -1,6 +1,9 @@
 import Head from 'next/head'
+
 import Form from '@/components/Form'
 import ResultBox from '@/components/ResultBox'
+import Header from '@/components/Header'
+
 import { useState } from 'react'
 
 export default function Home() {
@@ -16,9 +19,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <h1>Ai Message Generator ✒️</h1>
-        
-        <p>Generate your desired message based on simple facts!</p>
+      <Header />
         <main>
           <Form setMessage={setMessage} setLoading={setLoading}/>
           <ResultBox message={message} loading={loading}/>

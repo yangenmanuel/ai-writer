@@ -1,5 +1,5 @@
-export default function ResultBox () {
+export default function ResultBox ({ message}) {
   return (  
-    <h1>Hello</h1>
+    <p>{ message }</p>
   )
 }

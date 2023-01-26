@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-export default function Form() {
+export default function Form ({ setMessage, setLoading }) {
   const [type, setType] = useState('text message')
   const [toWho, setToWho] = useState('')
   const [tone, setTone] = useState('neutral')
@@ -9,8 +9,12 @@ export default function Form() {
   const handleSubmit = async (e) => {
     e.preventDefault()
 
-    // console.log({ type, toWho, tone, about })
+    setMessage('')
+    setLoading(true)
     const res = await fetch(`api/cohere?type=${type}&toWho=${toWho}&tone=${tone}&about=${about}`)
+    const { response } = await res.json()
+    setMessage(response)
+    setLoading(false)
   }
 
   return (

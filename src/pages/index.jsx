@@ -1,8 +1,12 @@
 import Head from 'next/head'
 import Form from '@/components/Form'
 import ResultBox from '@/components/ResultBox'
+import { useState } from 'react'
 
 export default function Home() {
+  const [message, setMessage] = useState('')
+  const [loading, setLoading] = useState(false)
+
   return (
     <>
       <Head>
@@ -15,8 +19,8 @@ export default function Home() {
         <h1>Ai Message Generator</h1>
         <p>Generate your desired message based on simple facts!</p>
         <main>
-          <Form/>
-          <ResultBox/>
+          <Form setMessage={setMessage} setLoading={setLoading}/>
+          {loading ? 'Loading...' : <ResultBox message={message}/>}
         </main>
     </>
   )

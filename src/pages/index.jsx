@@ -16,7 +16,8 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-        <h1>Ai Message Generator</h1>
+        <h1>Ai Message Generator ✒️</h1>
+        
         <p>Generate your desired message based on simple facts!</p>
         <main>
           <Form setMessage={setMessage} setLoading={setLoading}/>

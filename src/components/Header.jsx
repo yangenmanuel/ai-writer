@@ -5,7 +5,7 @@ export default function Header () {
   return (
     <section className='bg-orange-500 relative min-h-[30vh]'>
       <header className="min-h-[20vh] p-6 flex flex-row items-center justify-between">
-        <h1 className="text-2xl">Ai message generator ✒️</h1>
+        <h1 className="text-5xl font-['Dancing_Script']">Ai message generator ✒️</h1>
         <Image src={'/github.svg'} alt='See github repo' width={40} height={40}/>
       </header>
 

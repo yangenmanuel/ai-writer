@@ -1,4 +1,5 @@
 import { useState } from "react"
+import getCohereData from "@/lib/cohere"
 
 export default function Form ({ setMessage, setLoading }) {
   const [type, setType] = useState('text message')
@@ -12,15 +13,7 @@ export default function Form ({ setMessage, setLoading }) {
     setMessage('')
     setLoading(true)
     // const res = await fetch(`api/cohere?type=${type}&toWho=${toWho}&tone=${tone}&about=${about}`)
-    const url = new URL('/api/cohere', `${window.location.protocol}//${window.location.host}`)
-    url.searchParams.set('type', type)
-    url.searchParams.set('toWho', toWho)
-    url.searchParams.set('tone', tone)
-    url.searchParams.set('about', about)
-
-    const res = await fetch(url)
-
-    const { response } = await res.json()
+    const response = await getCohereData({ type, toWho, tone, about })
     setMessage(response)
     setLoading(false)
   }

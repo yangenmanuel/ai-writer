@@ -1,10 +1,9 @@
 import cohere from "cohere-ai"
 
-export default async function handler(req, res) {
-  const apiKey = process.env.COHERE_API_KEY
-  const { type, toWho, tone, about } = req.query
+export default async function getCohereData (data) {
+  const { type, toWho, tone, about } = data
 
-  cohere.init(apiKey)
+  cohere.init('FEX7syHQdP9udAY8uYIuIckBBRf76195uXzjJfx3')
 
   const output = await cohere.generate({
     prompt: `Write a ${type} telling ${toWho} in a ${tone} tone that ${about}`, 
@@ -17,8 +16,5 @@ export default async function handler(req, res) {
     return_likelihoods: 'NONE'
   })
 
-  res.json({
-    status: output.statusCode,
-    response: output.body.generations[0].text
-  })
+  return output.body.generations[0].text
 }

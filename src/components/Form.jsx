@@ -17,7 +17,7 @@ export default function Form ({ setMessage, setLoading }) {
     url.searchParams.set('toWho', toWho)
     url.searchParams.set('tone', tone)
     url.searchParams.set('about', about)
-
+    console.log(url.toString())
     const res = await fetch(url)
 
     const { response } = await res.json()

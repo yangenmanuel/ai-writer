@@ -2,10 +2,6 @@ import { useState } from "react"
 import getCohereData from "@/lib/cohere"
 
 export default function Form ({ setMessage, setLoading }) {
-  // const [type, setType] = useState('text message')
-  // const [toWho, setToWho] = useState('')
-  // const [tone, setTone] = useState('neutral')
-  // const [about, setAbout] = useState('')
   const [input, setInput] = useState({
     type: 'text message',
     toWho: '',
@@ -19,11 +15,12 @@ export default function Form ({ setMessage, setLoading }) {
 
     setMessage('')
     setLoading(true)
-    
+
     const response = await getCohereData(input)
     setMessage(response)
     setLoading(false)
   }
+  
   const handleChange = (e) => {
       const { name, value } = e.target
       setInput({ ...input, [name]: value  })

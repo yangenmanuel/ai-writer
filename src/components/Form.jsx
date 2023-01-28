@@ -27,25 +27,24 @@ export default function Form ({ setMessage, setLoading }) {
     }
 
   return (
-    <>
-    <form onSubmit={handleSubmit}>
-      <div className=''>
-        <label htmlFor='type'>Type of message</label>
-        <select name='type'  onChange={handleChange}>
+    <form onSubmit={handleSubmit} className='border border-orange-500 p-3 rounded-lg '>
+      <div className='mb-4'>
+        <label htmlFor='type' className="block mb-2 text-sm font-medium">Type of message</label>
+        <select name='type' className="bg-black-300 text-sm rounded-lg border-2 border-black border-opacity-30 focus:border-orange-500 focus:border-2 focus:outline-none block w-full p-2.5 mb-3" onChange={handleChange}>
           <option value='text message'>Text Message</option>
           <option value='email'>Email</option>
           <option value='letter'>Letter</option>
         </select>
       </div>
 
-      <div className=''>
-        <label htmlFor='toWho'>To:</label>
-        <input type='text' name='toWho'  onChange={handleChange}/>
+      <div className='mb-4'>
+        <label htmlFor='toWho' className="block mb-2 text-sm font-medium">Receiver:</label>
+        <input type='text' name='toWho' className="text-sm rounded-lg border-2 border-black border-opacity-30 focus:border-orange-500 focus:border-2 outline-none block w-full p-2.5 bg-black-300 placeholder-gray-400 shadow" placeholder="Ex: My friend / My boss" onChange={handleChange}/>
       </div>
 
-      <div className=''>
-        <label htmlFor='tone'>Tone:</label>
-        <select name='tone' onChange={handleChange}>
+      <div className='mb-4'>
+        <label htmlFor='tone' className="block mb-2 text-sm font-medium">Tone:</label>
+        <select name='tone' className="bg-black-300 text-sm rounded-lg border-2 border-black border-opacity-30 focus:border-orange-500 focus:border-2 focus:outline-none block w-full p-2.5 mb-3" onChange={handleChange}>
           <option value='neutral'>Neutral</option>
           <option value='friendly'>Friendly</option>
           <option value='professional'>Professional</option>
@@ -53,18 +52,18 @@ export default function Form ({ setMessage, setLoading }) {
         </select>
       </div>
 
-      <div className=''>
-        <label htmlFor='about'>What is it about?</label>
+      <div className='mb-4'>
+        <label htmlFor='about' className="block mb-2 text-sm font-medium">What is it about?</label>
         <textarea onChange={handleChange}
+          className='resize-none w-full h-40 rounded-lg p-3 border-2 border-black border-opacity-30 focus:border-orange-500 focus:outline-none'
           name='about'
-          cols='30'
-          rows='10'
           placeholder='Telling my friend I love her...'
         ></textarea>
       </div>
 
-      <button type="submit" >Write ✒️</button>
+      <div className="flex justify-center">
+        <button type="submit" className="w-2/5 bg-orange-500 p-2 rounded-lg font-medium" >Write ✒️</button>
+      </div>
     </form>
-    </>
   )
 }

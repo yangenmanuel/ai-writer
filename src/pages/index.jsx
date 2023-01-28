@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
 
       <Header />
-        <main>
+        <main className='p-4 mx-auto'>
           <Form setMessage={setMessage} setLoading={setLoading}/>
           <ResultBox message={message} loading={loading}/>
         </main>

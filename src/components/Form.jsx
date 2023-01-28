@@ -2,28 +2,39 @@ import { useState } from "react"
 import getCohereData from "@/lib/cohere"
 
 export default function Form ({ setMessage, setLoading }) {
-  const [type, setType] = useState('text message')
-  const [toWho, setToWho] = useState('')
-  const [tone, setTone] = useState('neutral')
-  const [about, setAbout] = useState('')
+  // const [type, setType] = useState('text message')
+  // const [toWho, setToWho] = useState('')
+  // const [tone, setTone] = useState('neutral')
+  // const [about, setAbout] = useState('')
+  const [input, setInput] = useState({
+    type: 'text message',
+    toWho: '',
+    tone: 'neutral',
+    about: ''
+  })
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    console.log(input)
 
     setMessage('')
     setLoading(true)
-    // const res = await fetch(`api/cohere?type=${type}&toWho=${toWho}&tone=${tone}&about=${about}`)
-    const response = await getCohereData({ type, toWho, tone, about })
+    
+    const response = await getCohereData(input)
     setMessage(response)
     setLoading(false)
   }
+  const handleChange = (e) => {
+      const { name, value } = e.target
+      setInput({ ...input, [name]: value  })
+    }
 
   return (
     <>
     <form onSubmit={handleSubmit}>
       <div className=''>
-        <label htmlFor='typeSelector'>Type of message</label>
-        <select name='typeSelector'  onChange={(e) => setType(e.target.value)}>
+        <label htmlFor='type'>Type of message</label>
+        <select name='type'  onChange={handleChange}>
           <option value='text message'>Text Message</option>
           <option value='email'>Email</option>
           <option value='letter'>Letter</option>
@@ -31,13 +42,13 @@ export default function Form ({ setMessage, setLoading }) {
       </div>
 
       <div className=''>
-        <label htmlFor='receiver'>To:</label>
-        <input type='text' name='receiver'  onChange={(e) => setToWho(e.target.value)}/>
+        <label htmlFor='toWho'>To:</label>
+        <input type='text' name='toWho'  onChange={handleChange}/>
       </div>
 
       <div className=''>
         <label htmlFor='tone'>Tone:</label>
-        <select name='tone' onChange={(e) => setTone(e.target.value)}>
+        <select name='tone' onChange={handleChange}>
           <option value='neutral'>Neutral</option>
           <option value='friendly'>Friendly</option>
           <option value='professional'>Professional</option>
@@ -47,7 +58,7 @@ export default function Form ({ setMessage, setLoading }) {
 
       <div className=''>
         <label htmlFor='about'>What is it about?</label>
-        <textarea onChange={(e) => setAbout(e.target.value)}
+        <textarea onChange={handleChange}
           name='about'
           cols='30'
           rows='10'

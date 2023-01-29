@@ -29,8 +29,8 @@ export default function Form ({ setMessage, setLoading }) {
   return (
     <form onSubmit={handleSubmit} className='p-3 rounded-lg bg-[#313135] md:w-1/2'>
       
-      <div className="flex justify-between">
-        <div className=''>
+      <div className="flex gap-3">
+        <div className='w-full'>
           <label htmlFor='type' className="block mb-2 text-sm font-medium">Type of message</label>
           <select name='type' className="bg-[#3c3c3e] text-sm rounded-lg border-2 border-[#474749] border-opacity-30 focus:border-orange-500 focus:border-2 focus:outline-none block w-full p-2.5 mb-3" onChange={handleChange}>
             <option value='text message'>Text Message</option>
@@ -38,7 +38,7 @@ export default function Form ({ setMessage, setLoading }) {
             <option value='letter'>Letter</option>
           </select>
         </div>
-        <div className=''>
+        <div className='w-full'>
           <label htmlFor='tone' className="block mb-2 text-sm font-medium">Tone:</label>
           <select name='tone' className="bg-[#3c3c3e] text-sm rounded-lg border-2 border-[#474749] border-opacity-30 focus:border-orange-500 focus:border-2 focus:outline-none block w-full p-2.5 mb-3" onChange={handleChange}>
             <option value='neutral'>Neutral</option>

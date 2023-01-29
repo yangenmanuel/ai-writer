@@ -20,7 +20,7 @@ export default function Home() {
       </Head>
 
       <Header />
-        <main className='p-4 mx-auto'>
+        <main className='p-4 block md:flex md:w-1/2 mx-auto gap-5'>
           <Form setMessage={setMessage} setLoading={setLoading}/>
           <ResultBox message={message} loading={loading}/>
         </main>

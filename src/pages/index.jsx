@@ -14,13 +14,15 @@ export default function Home() {
     <>
       <Head>
         <title>Ai Message Generator</title>
+        <meta lang='en'/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="An ai-provided tool that generates messages, emails, and letters for you" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />
-        <main className='p-4 block md:flex md:w-1/2 mx-auto gap-5'>
+        <main className='p-4 flex flex-col md:flex-row md:w-2/4 mx-auto gap-5'>
           <Form setMessage={setMessage} setLoading={setLoading}/>
           <ResultBox message={message} loading={loading}/>
         </main>

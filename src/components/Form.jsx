@@ -1,7 +1,7 @@
 import { useState } from "react"
 import getCohereData from "@/lib/cohere"
 
-export default function Form ({ setMessage, setLoading }) {
+export default function Form ({ setMessage, setLoading, loading }) {
   const [input, setInput] = useState({
     type: 'text message',
     toWho: '',
@@ -51,12 +51,12 @@ export default function Form ({ setMessage, setLoading }) {
 
       <div className='mb-4'>
         <label htmlFor='toWho' className="block mb-2 text-sm font-medium">Receiver:</label>
-        <input type='text' name='toWho' className="bg-[#3c3c3e] text-sm rounded-lg border-2 border-[#474749] border-opacity-30 focus:border-orange-500 focus:border-2 outline-none block w-full p-2.5 bg-black-300 placeholder-gray-400 shadow" placeholder="Ex: My friend / My boss" onChange={handleChange}/>
+        <input required type='text' name='toWho' className="bg-[#3c3c3e] text-sm rounded-lg border-2 border-[#474749] border-opacity-30 focus:border-orange-500 focus:border-2 outline-none block w-full p-2.5 bg-black-300 placeholder-gray-400 shadow" placeholder="Ex: My friend / My boss" onChange={handleChange}/>
       </div>
 
       <div className='mb-4'>
         <label htmlFor='about' className="block mb-2 text-sm font-medium">What is it about?</label>
-        <textarea onChange={handleChange}
+        <textarea required onChange={handleChange}
           className='bg-[#3c3c3e] resize-none w-full h-40 rounded-lg p-3 border-2 border-[#474749] border-opacity-30 focus:border-orange-500 focus:outline-none'
           name='about'
           placeholder='Telling my friend I love her...'
@@ -64,8 +64,11 @@ export default function Form ({ setMessage, setLoading }) {
       </div>
 
       <div className="flex justify-center">
-        <button type="submit" className="w-2/5 bg-orange-500 p-2 rounded-lg font-medium" >Write ✒️</button>
+        <button 
+        type="submit" 
+        className="w-auto bg-orange-500 px-5 py-2 rounded-lg font-medium disabled:cursor-not-allowed disabled:opacity-50 "
+        disabled={loading}
+        >Write ✒️</button>
       </div>
     </form>
-  )
-}
+ )}

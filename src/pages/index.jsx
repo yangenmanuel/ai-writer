@@ -22,8 +22,8 @@ export default function Home() {
       </Head>
 
       <Header />
-        <main className='p-4 flex flex-col md:flex-row md:w-2/4 mx-auto gap-5'>
-          <Form setMessage={setMessage} setLoading={setLoading}/>
+        <main className='p-4 block md:flex md:flex-row md:w-2/4 h-[64vh] mx-auto gap-5'>
+          <Form setMessage={setMessage} setLoading={setLoading} loading={loading}/>
           <ResultBox message={message} loading={loading}/>
         </main>
     </>

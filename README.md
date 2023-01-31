@@ -6,11 +6,18 @@ All this question are answered by this web app that thanks to CO:HERE it is poss
 generate messages according to:
 
 - Level of politeness
-- Type of message (text message, email, letter etc...)
+- Type of message (text message, email, essay)
 - What's the message about
 
-## Try it in your machine
+## Installation
 
-1- Install NodeJs and NPM or other similar like PNPM
-2- Run the command npm i for local environment setup
-3- Run the command npm run dev to set up local development server 
+Try the app in your PC with npm
+
+```bash
+  git clone https://github.com/yangenmanuel/ai-writer.git
+  cd ./ai-writer
+  npm i
+  npm run dev
+```
+
+ℹ️ This project was used to participate in the CO:HERE hackathon

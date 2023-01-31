@@ -13,16 +13,16 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Ai Message Generator</title>
+        <title>AI Writer</title>
         <meta lang='en'/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="An ai-provided tool that generates messages, emails, and letters for you" />
+        <meta name="description" content="An ai-provided tool that generates messages, emails, and essays for you" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <Header />
-        <main className='p-4 block md:flex md:flex-row md:w-2/4 h-[64vh] mx-auto gap-5'>
+        <main className='w-full flex flex-col h-auto sm:max-h-[29rem] sm:flex-row sm:w-[80%] mx-auto justify-center p-3 gap-5'>
           <Form setMessage={setMessage} setLoading={setLoading} loading={loading}/>
           <ResultBox message={message} loading={loading}/>
         </main>
